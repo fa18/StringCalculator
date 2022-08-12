@@ -26,4 +26,18 @@ public class StringCalculatorKataTest {
         int sum = stringCalculatorKata.add("1;2;3");
         assertEquals(6, sum);
     }
+
+    @Test
+    void should_return_sum_when_special_characters_are_in_string() {
+        StringCalculatorKata stringCalculatorKata = new StringCalculatorKata();
+        int sum = stringCalculatorKata.add("1\n2,3");
+        assertEquals(6, sum);
+    }
+
+    @Test
+    void should_not_return_sum_when_special_characters_not_allow_number_in_string() {
+        StringCalculatorKata stringCalculatorKata = new StringCalculatorKata();
+        int sum = stringCalculatorKata.add("1,\n");
+        assertEquals(1, sum);
+    }
 }

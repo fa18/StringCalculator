@@ -13,7 +13,7 @@ public class StringCalculatorKata {
             return sum;
         }
 
-        String[] operations = numbers.split(";");
+        String[] operations = numbers.split("[^0-9]");
 
         for(int i = 0 ;i<operations.length;i++){
             sum = sum(sum,Integer.parseInt(operations[i]));
