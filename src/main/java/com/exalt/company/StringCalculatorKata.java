@@ -15,11 +15,18 @@ public class StringCalculatorKata {
 
         String[] operations = numbers.split("[^0-9]");
 
+        if(operations.length<2){
+            throw new UnsupportedOperationException("lack one parameter");
+        }
+
         for(int i = 0 ;i<operations.length;i++){
+            if(!operations[i].matches("[0-9]+")){
+                throw new UnsupportedOperationException("negatives not allowed : "+numbers);
+            }
             sum = sum(sum,Integer.parseInt(operations[i]));
         }
         return sum;
 
-        //throw new UnsupportedOperationException("Please, complete this method with your implementation");
+
     }
 }

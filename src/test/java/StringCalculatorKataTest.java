@@ -3,6 +3,7 @@ import com.exalt.company.StringCalculatorKata;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringCalculatorKataTest {
 
@@ -35,9 +36,33 @@ public class StringCalculatorKataTest {
     }
 
     @Test
-    void should_not_return_sum_when_special_characters_not_allow_number_in_string() {
+    void should_return_exception_when_special_parameter_is_missing() {
         StringCalculatorKata stringCalculatorKata = new StringCalculatorKata();
-        int sum = stringCalculatorKata.add("1,\n");
-        assertEquals(1, sum);
+
+        boolean thrown = false;
+        try {
+            int sum = stringCalculatorKata.add("1,\n");
+        } catch (UnsupportedOperationException e) {
+            thrown = true;
+            assertEquals("lack one parameter",e.getMessage());
+        }
+
+        assertTrue(thrown);
+
+    }
+
+    @Test
+    void should_return_exception_when_negative_number_passed() {
+        StringCalculatorKata stringCalculatorKata = new StringCalculatorKata();
+
+        boolean thrown = false;
+        try {
+            int sum = stringCalculatorKata.add("-3,-1");
+        } catch (UnsupportedOperationException e) {
+            thrown = true;
+        }
+
+        assertTrue(thrown);
+
     }
 }
