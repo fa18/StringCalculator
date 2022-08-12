@@ -8,12 +8,17 @@ import static java.lang.Integer.sum;
 public class StringCalculatorKata {
 
     public int add(String numbers) {
+        int sum = 0;
         if(StringUtils.isEmpty(numbers)){
-            return 0;
+            return sum;
         }
 
         String[] operations = numbers.split(";");
-        return sum(Integer.parseInt(operations[0]),Integer.parseInt(operations[1]));
+
+        for(int i = 0 ;i<operations.length;i++){
+            sum = sum(sum,Integer.parseInt(operations[i]));
+        }
+        return sum;
 
         //throw new UnsupportedOperationException("Please, complete this method with your implementation");
     }

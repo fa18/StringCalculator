@@ -19,4 +19,11 @@ public class StringCalculatorKataTest {
         int sum = stringCalculatorKata.add("");
         assertEquals(0, sum);
     }
+
+    @Test
+    void should_return_sum_when_three_numbers_are_in_string() {
+        StringCalculatorKata stringCalculatorKata = new StringCalculatorKata();
+        int sum = stringCalculatorKata.add("1;2;3");
+        assertEquals(6, sum);
+    }
 }
